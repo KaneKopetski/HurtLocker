@@ -79,6 +79,14 @@ public class Inventory {
         return sb.toString();
     }
 
+//    public String createPriceFormat(Map<String, Integer> map){
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < map.size(); i++) {
+//            sb.append(String.format("Price:%9s" + "         seen:  " + map. + " times\n" + singleLine() + "\n", price));
+//        }
+//        return sb.toString();
+//    }
+
     public String printErrors() {
         return "Errors:                 seen:  " + NullValueException.count + " times";
     }

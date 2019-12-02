@@ -59,14 +59,14 @@ public class JerkSONParser {
     }
 
     public ArrayList createFoodList() {
-        for (String[] foodObject : itemList) {
-            String name = valueStringPattern(foodObject[0]);
-            String price = valuePricePattern(foodObject[1]);
-            String expiration = valueDatePattern(foodObject[2]);
-            String type = valueStringPattern(foodObject[3]);
+        for (String[] item : itemList) {
+            String name = valueStringPattern(item[0]);
+            String price = valuePricePattern(item[1]);
+            String expiration = valueDatePattern(item[2]);
+            String type = valueStringPattern(item[3]);
 
-            Item item = new Item(name, price, expiration, type);
-            inventory.itemList.add(item);
+            Item newItem = new Item(name, price, expiration, type);
+            inventory.itemList.add(newItem);
         }
         return null;
     }
