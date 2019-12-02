@@ -14,7 +14,7 @@ public class InventoryTest {
 
     @Test
     public void testCreateInventoryItemFormat() {
-        String expected = "name:   Milk            seen:  0  times\n" +
+        String expected = "name:      Milk         seen:  0  times\n" +
                 "===============         ===============";
         String actual = inventory.createInventoryItemFormat("Milk");
         Assert.assertEquals(expected, actual);
@@ -38,7 +38,14 @@ public class InventoryTest {
 
     @Test
     public void testCreatePriceFormat() {
-        System.out.println(inventory.createPriceFormat(new HashMap<String, Integer>()));
+        Map<String, Integer> map = new HashMap();
+        map.put("Milk", 1);
+
+        String expected = "Price:     Milk         seen:  1 times\n" +
+                "---------------         ---------------";
+        String actual = inventory.createPriceFormat(map);
+
+        Assert.assertEquals(expected, actual);
     }
 
 }

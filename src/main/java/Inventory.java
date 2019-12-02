@@ -72,24 +72,15 @@ public class Inventory {
     }
 
     public String createPriceFormat(Map<String, Integer> map){
-        StringBuilder priceGroup = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (String price : map.keySet()){
-            StringBuilder priceLine = new StringBuilder("Price:   " +
-                    price + "           seen:  " +
-                    map.get(price) + " times\n" +
-                    singleLine() + "\n");
-            priceGroup.append(priceLine.toString());
+            sb.append(String.format("Price:%9s" + "         seen:  " + map.get(price) + " times\n" + singleLine() + "\n", price));
         }
-        return priceGroup.toString();
+        return sb.toString();
     }
 
     public String printErrors() {
-        StringBuilder errorLine = new StringBuilder("Errors:      ");
-        errorLine.append("            ");
-        errorLine.append("seen:  ");
-        errorLine.append(NullValueException.count);
-        errorLine.append(" times");
-        return errorLine.toString();
+        return "Errors:                 seen:  " + NullValueException.count + " times";
     }
 
     public void printInventory(){
