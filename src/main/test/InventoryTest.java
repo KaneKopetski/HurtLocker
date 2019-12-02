@@ -42,8 +42,16 @@ public class InventoryTest {
         map.put("Milk", 1);
 
         String expected = "Price:     Milk         seen:  1 times\n" +
-                "---------------         ---------------";
+                "---------------         ---------------\n";
         String actual = inventory.createPriceFormat(map);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void printErrorsTest() {
+        String expected = "Errors:                 seen:  0 times";
+        String actual =inventory.printErrors();
 
         Assert.assertEquals(expected, actual);
     }

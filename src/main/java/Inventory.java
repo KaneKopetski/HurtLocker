@@ -73,7 +73,7 @@ public class Inventory {
 
     public String createPriceFormat(Map<String, Integer> map){
         StringBuilder sb = new StringBuilder();
-        for (String price : map.keySet()){
+        for (String price : map.keySet()) {
             sb.append(String.format("Price:%9s" + "         seen:  " + map.get(price) + " times\n" + singleLine() + "\n", price));
         }
         return sb.toString();
