@@ -59,41 +59,25 @@ public class Inventory {
 
 
     public String createInventoryItemFormat(String name){
-        StringBuilder firstLine = new StringBuilder("name:   ");
-        firstLine.append(name);
-        firstLine.append("            ");
-        firstLine.append("seen:  ");
-        firstLine.append(Item.getCount(name));
-        firstLine.append("  times\n");
-        firstLine.append(doubleLineFormat());
-        return firstLine.toString();
+        return String.format("name:%10s" + "         seen:  " + Item.getCount(name) + "  times\n" + doubleLine(), name);
+
     }
 
-    public String doubleLineFormat(){
-        StringBuilder lines = new StringBuilder("===============");
-        lines.append("         ");
-        lines.append("===============");
-        return lines.toString();
+    public String doubleLine(){
+        return "===============         ===============";
     }
 
-    public String singleLineFomat(){
-        StringBuilder line = new StringBuilder("---------------");
-        line.append("         ");
-        line.append("---------------");
-        return line.toString();
+    public String singleLine(){
+        return "---------------         ---------------";
     }
 
     public String createPriceFormat(Map<String, Integer> map){
         StringBuilder priceGroup = new StringBuilder();
         for (String price : map.keySet()){
-            StringBuilder priceLine = new StringBuilder("Price:   ");
-            priceLine.append(price);
-            priceLine.append("            ");
-            priceLine.append("seen:  ");
-            priceLine.append(map.get(price));
-            priceLine.append(" times\n");
-            priceLine.append(singleLineFomat());
-            priceLine.append("\n");
+            StringBuilder priceLine = new StringBuilder("Price:   " +
+                    price + "           seen:  " +
+                    map.get(price) + " times\n" +
+                    singleLine() + "\n");
             priceGroup.append(priceLine.toString());
         }
         return priceGroup.toString();

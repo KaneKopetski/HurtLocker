@@ -6,7 +6,7 @@ public class JerkSONParser {
     private ArrayList<String[]> itemList = new ArrayList<>();
     private Inventory inventory = new Inventory();
 
-    public void parse(String input) throws NullValueException {
+    public void parse(String input) {
         createFoodDataList(input);
         createFoodList();
         inventory.inventoryPrices();
