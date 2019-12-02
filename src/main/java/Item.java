@@ -31,7 +31,7 @@ public class Item {
     }
 
 
-    public String replaceMilkValuePattern(String foodName) {
+    public String fixMilk(String foodName) {
         Pattern p = Pattern.compile("(?i)^m\\w+");
         Matcher m = p.matcher(foodName);
         if(m.find()){
@@ -42,7 +42,7 @@ public class Item {
         return null;
     }
 
-    public String replaceCookiesValuePattern(String foodName) {
+    public String fixCookies(String foodName) {
         Pattern p = Pattern.compile("(?i)^c\\w+");
         Matcher m = p.matcher(foodName);
         if(m.find()){
@@ -53,7 +53,7 @@ public class Item {
         return null;
     }
 
-    public String replaceBreadValuePattern(String foodName) {
+    public String fixBread(String foodName) {
         Pattern p = Pattern.compile("(?i)^b\\w+");
         Matcher m = p.matcher(foodName);
         if(m.find()){
@@ -64,7 +64,7 @@ public class Item {
         return null;
     }
 
-    public String replaceApplesValuePattern(String foodName) {
+    public String fixApples(String foodName) {
         Pattern p = Pattern.compile("(?i)^a\\w+");
         Matcher m = p.matcher(foodName);
         if(m.find()){
@@ -97,10 +97,10 @@ public class Item {
         if (itemName == null) {
             throw new NullValueException("Name is null.");
         }
-        replaceMilkValuePattern(itemName);
-        replaceCookiesValuePattern(itemName);
-        replaceApplesValuePattern(itemName);
-        replaceBreadValuePattern(itemName);
+        fixMilk(itemName);
+        fixCookies(itemName);
+        fixBread(itemName);
+        fixApples(itemName);
     }
 
     public void checkPrice() throws NullValueException {
